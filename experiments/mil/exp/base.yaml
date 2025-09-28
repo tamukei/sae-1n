@@ -1,0 +1,50 @@
+# Basic experiment settings
+seed: 42
+task: "camelyon16"
+n_classes: 2
+experiment_code: "mil"
+results_dir_base: "output"
+
+# Dataset related settings
+dataset:
+  csv_path: "./dataset_csv/camelyon16_metadata.csv"
+  data_dir: "../features/camelyon16/clam_processed/"
+
+# Feature extraction details
+features:
+  backbone: "features_conch_v1"
+  patch_size: ""
+  use_sae_selected_units: True
+  sae_unit_summary_path: "./output/sae/camelyon16_conch_0/analysis/sae_analysis_t_test.csv"
+  num_top_sae_units: 2048
+  sae_unit_selection_metric: "p_value"
+
+# Split settings
+split_dir: "./splits/camelyon16_42/"
+label_frac: 1.0
+
+# Training loop settings
+max_epochs: 200
+preloading: "no"
+log_data: False
+testing: False
+early_stopping: True
+weighted_sample: False
+
+# Optimizer settings
+optimizer:
+  type: "adam"
+  lr: 0.0001
+  reg: 0.00001
+
+# Model settings
+model:
+  type: "att_mil"
+  in_dim: 512
+  drop_out: 0.25
+  act: "relu"
+
+# K-Fold Cross-validation settings
+k: 5
+k_start: 0
+k_end: 5

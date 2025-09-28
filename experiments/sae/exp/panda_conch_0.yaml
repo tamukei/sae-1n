@@ -1,0 +1,10 @@
+defaults:
+  - base
+
+data:
+  feature_dir: "../features/panda/clam_processed/features_conch_v1/"
+  split_csv_path: "./splits/panda_42/splits_0.csv"
+  wsi_dir: "../data/PANDA/train_images/"
+
+training:
+  wandb_project: "panda-sae-test"

@@ -1,0 +1,18 @@
+defaults:
+  - base
+
+dataset:
+  data_dir: "./output/sae/camelyon16_conch_0/encoded_features/camelyon16"
+
+features:
+  use_sae_selected_units: False
+  sae_unit_summary_path: "./output/sae/camelyon16_conch_0/analysis/sae_analysis_t_test.csv"
+  num_top_sae_units: 2048
+
+model:
+  in_dim: 2048
+  type: "max_mil"
+
+k: 5
+k_start: 0
+k_end: 1

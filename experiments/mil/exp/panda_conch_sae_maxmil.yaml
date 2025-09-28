@@ -1,0 +1,23 @@
+defaults:
+  - base
+
+task: "panda"
+
+dataset:
+  csv_path: "./dataset_csv/panda_metadata.csv"
+  data_dir: "./output/sae/panda_conch_0/encoded_features/panda"
+
+features:
+  use_sae_selected_units: False
+  sae_unit_summary_path: "./output/sae/panda_conch_0/analysis/sae_analysis_t_test.csv"
+  num_top_sae_units: 2048
+
+split_dir: "./splits/panda_42/"
+
+model:
+  in_dim: 2048
+  type: "max_mil"
+
+k: 1
+k_start: 0
+k_end: 1

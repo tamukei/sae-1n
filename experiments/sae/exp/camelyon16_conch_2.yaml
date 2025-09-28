@@ -1,0 +1,5 @@
+defaults:
+  - base
+
+data:
+  split_csv_path: "./splits/camelyon16_42/splits_2.csv"

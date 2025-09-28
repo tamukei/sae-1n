@@ -11,7 +11,7 @@ import wandb
 
 def find_func(model_name: str):
     model_name = model_name.lower()
-    if model_name in ['mean_mil', 'max_mil', 'att_mil','trans_mil','mamba_mil']:
+    if model_name in ['mean_mil', 'max_mil', 'att_mil','trans_mil']:
 
         return train_loop, validate
     else:
@@ -141,12 +141,6 @@ def train(datasets, cur, cfg_exp, results_dir):
     elif model_type_str == 'trans_mil':
         from models.TransMIL import TransMIL
         model = TransMIL(cfg_exp.model.in_dim, cfg_exp.n_classes, dropout=cfg_exp.model.drop_out, act=cfg_exp.model.act)
-    # elif args.model_type == 's4model':
-    #     from models.S4MIL import S4Model
-    #     model = S4Model(in_dim = args.in_dim, n_classes = args.n_classes, act = 'gelu', dropout = args.drop_out)
-    elif model_type_str == 'mamba_mil':
-        from models.MambaMIL import MambaMIL
-        model = MambaMIL(in_dim = cfg_exp.model.in_dim, n_classes=cfg_exp.n_classes, dropout=cfg_exp.model.drop_out, act=cfg_exp.model.act, layer = cfg_exp.model.mambamil_layer, rate = cfg_exp.model.mambamil_rate, type = cfg_exp.model.mambamil_type)
     else:
         raise NotImplementedError(f'{cfg_exp.model.type} is not implemented ...')
 

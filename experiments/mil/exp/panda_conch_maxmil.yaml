@@ -1,0 +1,20 @@
+defaults:
+  - base
+
+task: "panda"
+
+dataset:
+  csv_path: "./dataset_csv/panda_metadata.csv"
+  data_dir: "../features/panda/clam_processed/"
+
+features:
+  use_sae_selected_units: False
+
+split_dir: "./splits/panda_42/"
+
+model:
+  type: "max_mil"
+
+k: 1
+k_start: 0
+k_end: 1

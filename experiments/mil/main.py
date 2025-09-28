@@ -45,7 +45,7 @@ def get_selected_sae_units(cfg_features: DictConfig) -> Optional[np.ndarray]:
         print(f"Error: Metric '{metric}' not found in columns of {summary_path}. Columns: {df_summary.columns.tolist()}. Skipping unit selection.")
         return None
 
-    # Sort by metric (descending for AUPRC, ascending for P Value)
+    # Sort by metric
     df_sorted = df_summary.sort_values(by=metric, ascending=True)
     
     selected_units_series = df_sorted['unit_id'].head(num_top_units)
@@ -113,6 +113,18 @@ def main(cfg: DictConfig) -> None:
     # === Dataset Initialization ===
     print('\nLoad Dataset')
     if cfg.exp.task == 'camelyon16':
+        dataset_full = Generic_MIL_Dataset(
+            csv_path=cfg.exp.dataset.csv_path, 
+            data_dir=cfg.exp.dataset.data_dir, 
+            shuffle=False,
+            seed=cfg.exp.seed,
+            print_info=True,
+            label_dict={'normal': 0, 'tumor': 1},
+            patient_strat=False,
+            ignore=[],
+            selected_unit_indices=selected_unit_indices
+        )
+    elif cfg.exp.task == 'panda':
         dataset_full = Generic_MIL_Dataset(
             csv_path=cfg.exp.dataset.csv_path, 
             data_dir=cfg.exp.dataset.data_dir, 
