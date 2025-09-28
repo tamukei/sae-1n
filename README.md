@@ -15,24 +15,33 @@ Below is an example of the **final state** after running preprocessing, feature 
 ├── sae-1n/                          # this repo (code)
 │   ├── experiments/
 │   ├── requirements.txt
+│   ├── dataset_csv/                 # (created by metadata scripts)
+│   ├── splits/                      # (created by split scripts)
 │   ├── output/                      # (created during training/analysis)
 │   │   └── sae/
 │   │       └── camelyon16_conch_0/
+│   │           ├── analysis/
 │   │           ├── checkpoints/
-│   │           ├── logs/
 │   │           └── encoded_features/
 │   │               └── camelyon16/
 │   │                   └── features_conch_v1/
+│   │                       ├── h5_files/
 │   │                       └── pt_files/
 │   └── ...
 ├── data/
-│   ├── CAMELYON16/
-│   └── PANDA/
+│   ├── CAMELYON16
+│   └── PANDA
 ├── features/
 │   ├── camelyon16/
+│   │   └── clam_processed/
+│   │       └── features_conch_v1/
+│   │           ├── h5_files/
+│   │           └── pt_files/
 │   └── panda/
-├── dataset_csv/                     # (created by metadata scripts)
-└── splits/                          # (created by split scripts)
+│       └── clam_processed/
+│           └── features_conch_v1/
+│               ├── h5_files/
+│               └── pt_files/
 ````
 
 ---
